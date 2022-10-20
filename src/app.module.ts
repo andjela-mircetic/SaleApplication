@@ -4,6 +4,8 @@ import { DatabaseConfiguration } from 'config/database.config';
 import { Administrator } from 'entities/administrator.entity';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AdministratorService } from './services/administrator/administrator.service';
+
 
 @Module({
   imports: [
@@ -19,6 +21,6 @@ import { AppService } from './app.service';
     TypeOrmModule.forFeature([Administrator])
   ],
   controllers: [AppController],
-  providers: [/*AppService*/],
+  providers: [AdministratorService],
 })
 export class AppModule {}

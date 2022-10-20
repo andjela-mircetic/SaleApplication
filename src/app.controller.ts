@@ -6,7 +6,7 @@ import { AdministratorService } from './services/administrator/administrator.ser
 
 @Controller()
 export class AppController {
-  constructor(private administratorService: AdministratorService) {}
+  constructor(private administratorService: AdministratorService) { }
 
   /*@Get()
   getHello(): string {
