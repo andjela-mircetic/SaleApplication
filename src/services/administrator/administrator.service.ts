@@ -5,8 +5,8 @@ import { Administrator } from 'entities/administrator.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class AdministratorService {constructor
-    (@InjectRepository(Administrator) private readonly administrator : Repository<Administrator>,
+export class AdministratorService {
+    constructor(@InjectRepository(Administrator) private readonly administrator: Repository<Administrator>,
     ){}
 
  getAll(): Promise<Administrator[]>{
