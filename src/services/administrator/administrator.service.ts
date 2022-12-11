@@ -30,6 +30,18 @@ async getById(id: number): Promise<Administrator | ApiResponse> {
     return admin;
 }
 
+async getByUsername(username: string): Promise<Administrator | null>{
+    const admin= await this.administrator.findOneBy({
+username: username
+    });
+
+    if(admin){
+        return admin;
+    }
+    return null;
+}
+
+
 add(data: AddAdministratorDto): Promise<Administrator | ApiResponse>{
     const passwordHash= crypto.createHash('sha512');
     passwordHash.update(data.password);
