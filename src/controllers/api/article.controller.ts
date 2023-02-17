@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Param, Post, Req, UploadedFile, UseGuards, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Crud } from "@nestjsx/crud";
 import { StorageConfig } from "config/storage.cofig";
@@ -12,6 +12,8 @@ import { ApiResponse } from "src/misconvenience/api.response.class";
 import { fileName } from "typeorm-model-generator/dist/src/NamingStrategy";
 import * as fileType from "file-type";
 import * as sharp from 'sharp';
+import { AllowToRoles } from "src/misconvenience/allow.to.roles.descriptor";
+import { RoleCheckedGuard } from "src/misconvenience/role.checker.guard";
 
 @Controller('api/article')
 @Crud({
@@ -49,11 +51,15 @@ export class ArticleController{
         public photoService: PhotoService
         ){ }
 
+    @UseGuards(RoleCheckedGuard)
+    @AllowToRoles('administrator')
     @Post('createFull')
     createFullArticle(@Body() data: AddArticleDto){
         return this.service.createFullArticle(data);
     }
 
+    @UseGuards(RoleCheckedGuard)
+    @AllowToRoles('administrator')
     @Post(':id/uploadPhoto/')
     @UseInterceptors(
         FileInterceptor('photo', {

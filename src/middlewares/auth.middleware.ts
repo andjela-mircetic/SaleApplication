@@ -60,7 +60,8 @@ if(trenutniTimestamp >= jwtData.exp){
     
 }
 
-
+    req.token = jwtData;
+    
         next();
     }
     
