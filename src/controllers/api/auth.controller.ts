@@ -36,7 +36,7 @@ async doLogin(@Body() data: LoginAdministratorDto, @Req() req: Request): Promise
     let sada= new Date();
     sada.setDate(sada.getDate() + 14);
     const istekTimestamp = sada.getTime()/1000;
-    jwtData.ext = istekTimestamp;
+    jwtData.exp = istekTimestamp;
     jwtData.ip = req.ip.toString();
     jwtData.ua = req.headers["user-agent"];
 

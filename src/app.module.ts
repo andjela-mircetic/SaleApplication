@@ -1,17 +1,17 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseConfiguration } from 'config/database.config';
-import { Administrator } from 'entities/administrator.entity';
-import { ArticleFeature } from 'entities/article-feature.entity';
-import { ArticlePrice } from 'entities/article-price.entity';
-import { Article } from 'entities/article.entity';
-import { CartArticle } from 'entities/cart-article.entity';
-import { Cart } from 'entities/cart.entity';
-import { Category } from 'entities/category.entity';
-import { Feature } from 'entities/feature.entity';
-import { Order } from 'entities/order.entity';
-import { Photo } from 'entities/photo.entity';
-import { User } from 'entities/user.entity';
+import { Administrator } from 'src/entities/administrator.entity';
+import { ArticleFeature } from 'src/entities/article-feature.entity';
+import { ArticlePrice } from 'src/entities/article-price.entity';
+import { Article } from 'src/entities/article.entity';
+import { CartArticle } from 'src/entities/cart-article.entity';
+import { Cart } from 'src/entities/cart.entity';
+import { Category } from 'src/entities/category.entity';
+import { Feature } from 'src/entities/feature.entity';
+import { Order } from 'src/entities/order.entity';
+import { Photo } from 'src/entities/photo.entity';
+import { User } from 'src/entities/user.entity';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './app.service';
 import { AdministratorService } from './services/administrator/administrator.service';
@@ -22,6 +22,9 @@ import { ArticleService } from './services/article/article.service';
 import { ArticleController } from './controllers/api/article.controller';
 import { AuthController } from './controllers/api/auth.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
+import { PhotoService } from './services/photo/photo.service';
+import { FeatureService } from './services/feature/feature.service';
+import { FeatureController } from './controllers/api/feature.controller';
 
 
 @Module({
@@ -37,17 +40,20 @@ import { AuthMiddleware } from './middlewares/auth.middleware';
       ArticleFeature,ArticlePrice,Article,Cart, CartArticle, Category, Feature, Order, Photo, User ]
     }),
     TypeOrmModule.forFeature([Administrator,
-    Category, Article, ArticlePrice, ArticleFeature, Feature])
+    Category, Article, Order, User, ArticlePrice, ArticleFeature, Photo, Cart, Feature])
   ],
   controllers: [AppController, 
     AdministratorController, 
     CategoryController, 
     ArticleController,
-  AuthController],
+  AuthController,
+FeatureController, ],
     
   providers: [AdministratorService,
      CategoryService, 
-     ArticleService],
+     ArticleService,
+    PhotoService,
+  FeatureService],
   exports:[
     AdministratorService
   ]

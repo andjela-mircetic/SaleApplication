@@ -1,16 +1,16 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { TypeOrmCrudService } from "@nestjsx/crud-typeorm";
-import { Category } from "src/entities/category.entity";
+import { Feature } from "src/entities/Feature.entity";
 import { Repository } from "typeorm";
 
 @Injectable()
-export class CategoryService extends TypeOrmCrudService<Category>{
+export class FeatureService extends TypeOrmCrudService<Feature>{
     constructor(
-        @InjectRepository(Category)
-            private readonly category: Repository<Category>
+        @InjectRepository(Feature)
+            private readonly Feature: Repository<Feature>
     ){
-        super(category);
+        super(Feature);
         }
     
     
