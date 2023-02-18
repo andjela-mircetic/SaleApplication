@@ -1,0 +1,1123 @@
+{
+	"info": {
+		"_postman_id": "622a41e8-3985-48f5-99ac-0c404783359b",
+		"name": "Veb servis aplikacije",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23883747"
+	},
+	"item": [
+		{
+			"name": "Administrator",
+			"item": [
+				{
+					"name": "Get all administrators",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all administrators",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "143"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8f-tPeadbbomzy9HM4BGyCGYFaMqY4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 16:29:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"administratorId\": 1,\n        \"username\": \"Andjela\",\n        \"passwordHash\": \"3243redfrfg\"\n    },\n    {\n        \"administratorId\": 2,\n        \"username\": \"DusanDJO\",\n        \"passwordHash\": \"0fdhbfgf\"\n    }\n]"
+						},
+						{
+							"name": "Get all administrators- using token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "823"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"337-crEPV9bsfuwuExa4A/JMf2ggcHU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 21:34:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"administratorId\": 1,\n        \"username\": \"Andjela\",\n        \"passwordHash\": \"DE160FED400F5C29F329B96234DC9EFA60EE45F10312392980B13A55223B375E72818EB88CDDE91AF105719AB8CE6CA511AC9C12F3DF8C8EA7ED3572E47CB042\"\n    },\n    {\n        \"administratorId\": 2,\n        \"username\": \"DusanDJO\",\n        \"passwordHash\": \"0fdhbfgf\"\n    },\n    {\n        \"administratorId\": 3,\n        \"username\": \"pperic\",\n        \"passwordHash\": \"0DCC617B3BEF102B2B55B9C4275C7A8924E825DBC4AEF3B69D40550D865CF67DCF5399A5FFAB74CF4D9C737DF73C3D2BEC03E21AB5B62B1DBB200ADF40AD5C88\"\n    },\n    {\n        \"administratorId\": 6,\n        \"username\": \"mmilic\",\n        \"passwordHash\": \"764E967CC4ABD769746826074C36CF35DB074787E2E112DEA3089F50D4676B0897F072797689DAC7C8A34D07BF442BDF96567EED652835B70C7DA4DE408CC801\"\n    },\n    {\n        \"administratorId\": 8,\n        \"username\": \"admin\",\n        \"passwordHash\": \"C7AD44CBAD762A5DA0A452F9E854FDC1E0E7A52A38015F23F3EAB1D80B931DD472634DFAC71CD34EBC35D16AB7FB8A90C81F975113D6C7538DC69DD8DE9077EC\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single administrator",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/2/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a single administrator",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-GkJjMPXKXKRvNrMgolpymuLO9G8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 16:33:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 2,\n    \"username\": \"DusanDJO\",\n    \"passwordHash\": \"0fdhbfgf\"\n}"
+						},
+						{
+							"name": "Get a single administrator- error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/58/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"58",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-TohoSz0THfgyH4V7rCdfcfXcq54\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 18:02:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new administrator",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"pperic\",\r\n    \"password\": \"nekalozinka\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new administrator - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"pperic\",\r\n    \"password\": \"nekalozinka\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-dZ6d/BO79gRLkfoqJGIFjQ0Rz6k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 16:38:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"pperic\",\n    \"passwordHash\": \"0DCC617B3BEF102B2B55B9C4275C7A8924E825DBC4AEF3B69D40550D865CF67DCF5399A5FFAB74CF4D9C737DF73C3D2BEC03E21AB5B62B1DBB200ADF40AD5C88\",\n    \"administratorId\": 3\n}"
+						},
+						{
+							"name": "Add a new administrator- error(username taken)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"mmilic\",\r\n    \"password\": \"neregrekalozinkar4ferg\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-t4k/9UI9MQaVcBQ68YkMUdFYBok\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 17:17:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1001,\n    \"message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"password\": \"novalozinkazaprvu\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/655/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								"655",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit password-success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"password\": \"novalozinkazaprvu\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bc-02dIzU1fXlhoZZR880dW1cakN74\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 17:26:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 1,\n    \"username\": \"Andjela\",\n    \"passwordHash\": \"DE160FED400F5C29F329B96234DC9EFA60EE45F10312392980B13A55223B375E72818EB88CDDE91AF105719AB8CE6CA511AC9C12F3DF8C8EA7ED3572E47CB042\"\n}"
+						},
+						{
+							"name": "Edit password-no id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"password\": \"novalozinkazaprvu\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/655/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"655",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 17:27:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+						},
+						{
+							"name": "Edit password-error my response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"password\": \"novalozinkazaprvu\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/655/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"655",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-TohoSz0THfgyH4V7rCdfcfXcq54\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Oct 2022 17:50:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": null\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdHJhdG9ySWQiOjgsInVzZXJuYW1lIjoiYWRtaW4iLCJleHQiOjE2NzY4MzcyNjkuNzUyLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOS4yIiwiaWF0IjoxNjc1NjI3NjY5fQ.fq8dWYApSkP0WxS3YeHODjVPE7ZQs1ESfb7AxdFHrhs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Create full article",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\"name\":\"ACME HDD 1TB\",\r\n    \"categoryId\": 5,\r\n    \"excerpt\": \"Neki kratak tekst\",\r\n    \"description\": \"Duzi tekst\",\r\n    \"price\":56.89,\r\n    \"features\":[{\r\n        \"featureId\": 1,\r\n        \"value\":\"1TB\"\r\n    },\r\n    {\r\n        \"featureId\": 3,\r\n        \"value\":\"SSD\"\r\n    }]\r\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/article/createFull",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"article",
+										"createFull"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "645"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"285-KOSoS3Rp4Lubu9gIwYFEA1WoDp8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 16:38:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"articleId\": 2,\n    \"name\": \"ACME HDD 1TB\",\n    \"categoryId\": 5,\n    \"excerpt\": \"Neki kratak tekst\",\n    \"description\": \"Duzi tekst\",\n    \"status\": \"available\",\n    \"isPromoted\": 0,\n    \"createdAt\": \"2022-12-10T16:38:13.000Z\",\n    \"category\": {\n        \"categoryId\": 5,\n        \"name\": \"Hard diskov\",\n        \"imagePath\": \"dir\",\n        \"parentCategoryId\": 4\n    },\n    \"articleFeatures\": [\n        {\n            \"articleFeatureId\": 4,\n            \"featureId\": 1,\n            \"value\": \"1TB\",\n            \"articleId\": 2\n        },\n        {\n            \"articleFeatureId\": 5,\n            \"featureId\": 3,\n            \"value\": \"SSD\",\n            \"articleId\": 2\n        }\n    ],\n    \"features\": [\n        {\n            \"featureId\": 1,\n            \"name\": \"Kapacitet\",\n            \"categoryId\": 5\n        },\n        {\n            \"featureId\": 3,\n            \"name\": \"Tehnologija\",\n            \"categoryId\": 5\n        }\n    ],\n    \"articlePrices\": [\n        {\n            \"articlePriceId\": 1,\n            \"articleId\": 2,\n            \"price\": \"56.89\",\n            \"createdAt\": \"2022-12-10T16:38:13.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Upload article photo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Upload article photo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/ANDJELA/Downloads/harddisk.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/article/2/UploadPhoto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"article",
+										"2",
+										"UploadPhoto"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-ZLvnMVaEuTLkHQPXqd12mtwxCOQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 20:42:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"articleId\": 2,\n    \"imagePath\": \"202325-9710311333-harddisk.jpg\",\n    \"photoId\": 4\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdHJhdG9ySWQiOjgsInVzZXJuYW1lIjoiYWRtaW4iLCJleHQiOjE2NzY4MzcyNjkuNzUyLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOS4yIiwiaWF0IjoxNjc1NjI3NjY5fQ.fq8dWYApSkP0WxS3YeHODjVPE7ZQs1ESfb7AxdFHrhs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Login- when the administrator exists and the password is correct",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "288"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"120-klW2RGHYm4OcvHjrFXxIyfcyfzM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 20:33:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 8,\n    \"username\": \"admin\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdHJhdG9ySWQiOjgsInVzZXJuYW1lIjoiYWRtaW4iLCJleHQiOjE2NzIwMDA0MjUuMjEsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjIiLCJpYXQiOjE2NzA3OTA4MjV9.wC2omeVhCC7gIyo8_5udtwGNVvzzB-FvBV6kGkFnHr0\"\n}"
+						},
+						{
+							"name": "Login- when the username is incorrect",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"admin1\",\r\n    \"password\":\"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-jVzHjGg0W81AgoBNOOnaoLkouLY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 20:36:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3001,\n    \"message\": null\n}"
+						},
+						{
+							"name": "Login-when the password is incorrect",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin1\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-yGnd1fUn+KRemOJUJKfIJoExxS4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 20:37:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3002,\n    \"message\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

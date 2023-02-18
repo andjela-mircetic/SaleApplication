@@ -26,6 +26,9 @@ import { PhotoService } from './services/photo/photo.service';
 import { FeatureService } from './services/feature/feature.service';
 import { FeatureController } from './controllers/api/feature.controller';
 import { UserService } from './services/user/user.service';
+import { CartService } from './services/cart/cart.service';
+import { UserCartController } from './controllers/api/user.cart.controller';
+import { OrderService } from './services/order/order.service';
 
 
 @Module({
@@ -41,22 +44,25 @@ import { UserService } from './services/user/user.service';
       ArticleFeature,ArticlePrice,Article,Cart, CartArticle, Category, Feature, Order, Photo, User ]
     }),
     TypeOrmModule.forFeature([Administrator,
-    Category, Article, Order, User, ArticlePrice, ArticleFeature, Photo, Cart, Feature])
+    Category, Article, Order, User, ArticlePrice, ArticleFeature, Photo, Cart, Feature, CartArticle])
   ],
   controllers: [AppController, 
     AdministratorController, 
     CategoryController, 
     ArticleController,
   AuthController,
-FeatureController, ],
+FeatureController, 
+UserCartController],
     
   providers: [AdministratorService,
      CategoryService, 
      ArticleService,
     PhotoService,
-  FeatureService, UserService],
+  FeatureService, 
+  UserService, 
+  CartService, OrderService],
   exports:[
-    AdministratorService, UserService
+    AdministratorService, UserService, 
   ]
 })
 export class AppModule  implements NestModule{

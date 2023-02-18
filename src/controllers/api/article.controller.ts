@@ -10,7 +10,7 @@ import { PhotoService } from "src/services/photo/photo.service";
 import { Photo } from "src/entities/photo.entity";
 import { ApiResponse } from "src/misconvenience/api.response.class";
 import { fileName } from "typeorm-model-generator/dist/src/NamingStrategy";
-import * as fileType from "file-type";
+//import * as fileType from "file-type";
 import * as sharp from 'sharp';
 import { AllowToRoles } from "src/misconvenience/allow.to.roles.descriptor";
 import { RoleCheckedGuard } from "src/misconvenience/role.checker.guard";
@@ -42,6 +42,26 @@ import { RoleCheckedGuard } from "src/misconvenience/role.checker.guard";
                 eager:true
             }
           }
+        },
+        routes:{
+            only:[
+                'getManyBase',
+                'getOneBase'
+            ],
+            getOneBase:{
+                decorators:[
+                    UseGuards(RoleCheckedGuard),
+                    AllowToRoles('administrator', 'user')
+                ],
+            },
+            getManyBase:{
+                decorators:[
+                    UseGuards(RoleCheckedGuard),
+                    AllowToRoles('administrator', 'user')
+                ],
+            }
+
+            
         }
 
     }
@@ -53,7 +73,7 @@ export class ArticleController{
 
     @UseGuards(RoleCheckedGuard)
     @AllowToRoles('administrator')
-    @Post('createFull')
+    @Post()
     createFullArticle(@Body() data: AddArticleDto){
         return this.service.createFullArticle(data);
     }
@@ -108,7 +128,7 @@ export class ArticleController{
             return new ApiResponse('error', -4002, 'Photo not uploaded');
         }
 
-        const fileTypeResult = await fileType.fileTypeFromFile(photo.path);
+        /*const fileTypeResult = await fileType.fileTypeFromFile(photo.path);
         if(!fileTypeResult){
 
             return new ApiResponse('error', -4002, 'Cannot detect type');
@@ -117,7 +137,7 @@ export class ArticleController{
         const realMimeType = fileTypeResult.mime;
         if(!(realMimeType.includes('jpeg') || realMimeType.includes('png'))){
             return new ApiResponse('error', -4002, 'Bad file content type');
-        }
+        }*/
 
         await this.createThumb(photo);
         await this.createSmallImage(photo);
