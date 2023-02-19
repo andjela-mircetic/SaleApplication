@@ -14,6 +14,7 @@ import { fileName } from "typeorm-model-generator/dist/src/NamingStrategy";
 import * as sharp from 'sharp';
 import { AllowToRoles } from "src/misconvenience/allow.to.roles.descriptor";
 import { RoleCheckedGuard } from "src/misconvenience/role.checker.guard";
+import { ArticleSearchDto } from "src/dtos/article/article.search.dto";
 
 @Controller('api/article')
 @Crud({
@@ -185,7 +186,14 @@ export class ArticleController{
 
     }
 
+    @Post('search')
+    @UseGuards(RoleCheckedGuard)
+    @AllowToRoles('administrator', 'user')
+    async search(@Body() data: ArticleSearchDto): Promise<Article[]>{
+        return await this.service.search(data);
+    }
     
+
 
 
 }

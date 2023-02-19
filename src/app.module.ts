@@ -29,6 +29,10 @@ import { UserService } from './services/user/user.service';
 import { CartService } from './services/cart/cart.service';
 import { UserCartController } from './controllers/api/user.cart.controller';
 import { OrderService } from './services/order/order.service';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { MailConfig } from 'config/mail.config';
+import { OrderMailer } from './services/order/order.mailer.service';
+import { AdministratorOrderController } from './controllers/api/administrator.order.controller';
 
 
 @Module({
@@ -41,10 +45,21 @@ import { OrderService } from './services/order/order.service';
       password: DatabaseConfiguration.password,
       database: DatabaseConfiguration.database,
       entities: [ Administrator,
-      ArticleFeature,ArticlePrice,Article,Cart, CartArticle, Category, Feature, Order, Photo, User ]
+      ArticleFeature,ArticlePrice,Article,Cart,
+       CartArticle, Category, Feature,
+        Order, Photo, User ]
     }),
     TypeOrmModule.forFeature([Administrator,
-    Category, Article, Order, User, ArticlePrice, ArticleFeature, Photo, Cart, Feature, CartArticle])
+    Category, Article, Order, User, 
+    ArticlePrice, ArticleFeature, 
+    Photo, Cart, Feature, CartArticle]),
+    MailerModule.forRoot({
+      transport: 'smtps://' + MailConfig.username +
+       ':' + MailConfig.password + '@' + MailConfig.hostname,
+       defaults:{
+        from: MailConfig.senderEmail,
+       }
+    }),
   ],
   controllers: [AppController, 
     AdministratorController, 
@@ -52,7 +67,8 @@ import { OrderService } from './services/order/order.service';
     ArticleController,
   AuthController,
 FeatureController, 
-UserCartController],
+UserCartController,
+AdministratorOrderController],
     
   providers: [AdministratorService,
      CategoryService, 
@@ -60,7 +76,8 @@ UserCartController],
     PhotoService,
   FeatureService, 
   UserService, 
-  CartService, OrderService],
+  CartService, OrderService,
+OrderMailer,],
   exports:[
     AdministratorService, UserService, 
   ]

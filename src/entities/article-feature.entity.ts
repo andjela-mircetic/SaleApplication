@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { Article } from "./article.entity";
 import { Feature } from "./feature.entity";
+import * as Validator from 'class-validator';
 
 @Index("fk_article_feature_article_id", ["articleId"], {})
 @Index("uq_article_feature_feature_id_article_id", ["featureId", "articleId"], {
@@ -26,6 +27,9 @@ export class ArticleFeature {
   featureId: number;
 
   @Column("varchar", { name: "value", length: 255, default: () => "'0'" })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(0,255)
   value: string;
 
   @Column("int", { name: "article_id", unsigned: true, default: () => "'0'" })

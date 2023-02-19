@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { StorageConfig } from 'config/storage.cofig';
@@ -11,6 +12,9 @@ app.useStaticAssets(StorageConfig.photo.destination, {
   maxAge: 1000 * 60 *60 * 24 * 7, //7 dana
 index:false,
 });
+
+app.useGlobalPipes(new ValidationPipe());
+
 
   await app.listen(3000);
 }

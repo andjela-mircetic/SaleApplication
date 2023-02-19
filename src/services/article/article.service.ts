@@ -9,6 +9,8 @@ import { AddArticleDto } from "src/dtos/article/add.article.dto";
 import { ApiResponse } from "src/misconvenience/api.response.class";
 
 import { Repository } from "typeorm";
+import { ArticleSearchDto } from "src/dtos/article/article.search.dto";
+import { Order } from "src/entities/order.entity";
 
 @Injectable()
 export class ArticleService extends TypeOrmCrudService<Article>{
@@ -59,6 +61,67 @@ export class ArticleService extends TypeOrmCrudService<Article>{
                     articlePrices: true
             }}
             );
+
+    }
+
+    async search(data: ArticleSearchDto): Promise<Article[]>{
+        const builder = await this.article.createQueryBuilder("article");
+        
+        builder.innerJoin("article.articlePrices", "ap");
+        builder.leftJoin("article.articleFeatures", "af");
+        builder.where('article.categoryId = :categoryId', {
+            categoryId: data.categoryId
+        });
+        if(data.keywords && data.keywords.length > 0){
+            builder.andWhere('article.name LIKE :kw OR article.excerpt LIKE :kw OR article.description LIKE :kw',
+            {kw: '%' + data.keywords.trim() + '%' });
+        }
+
+        if(data.priceMin && typeof data.priceMin === 'number' ){
+            builder.andWhere('ap.price >= :min', {min: data.priceMin});
+        }
+        if(data.priceMax && typeof data.priceMax === 'number' ){
+            builder.andWhere('ap.price <= :max', {max: data.priceMax});
+        }
+
+        if(data.features && data.features.length > 0){
+            for(const feature of data.features){
+                builder.andWhere('af.featureId = :fId AND af.value in (:fVals)',
+                 {
+                    fId: feature.featureId,
+                    fVals: feature.values,
+                    
+                 });
+            }
+        }
+
+        let orderBy = 'article.name';
+        let orderDirection : 'ASC' | 'DESC'= 'ASC';
+        if(data.orderBy ){
+            orderBy = data.orderBy;
+            if(orderBy = 'price'){
+                orderBy = 'af.price';
+            }
+        }
+
+        if(data.orderDirection ){
+            orderDirection = data.orderDirection;
+        }
+        builder.orderBy(orderBy, orderDirection);
+        let page =0;
+        let perPage: 5 | 10 | 25 | 50 | 75 = 25;
+        if(data.page && typeof data.page === 'number'){
+            page = data.page;
+        }
+
+        if(data.itemsPerPage && typeof data.itemsPerPage === 'number'){
+            perPage= data.itemsPerPage;
+        }
+
+        builder.skip(page*perPage);
+        builder.take(perPage);
+        let items = await builder.getMany();
+        return items;
 
     }
     
